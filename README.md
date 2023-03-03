@@ -58,3 +58,4 @@ Or simply run:
 
 - As with original proxies, it does not support `transfer` and `send` to the contract (due to gas limitation)
 - The proxy contract, currently, does not have any exclusion mechanism, which means that callbacks to the same contract will be blocked, as they are essentially reentrant calls (e.g. ERC721 `onERC721Received` to the same contract)
+- To check if the current context is a `STATICCALL`, we use a pattern in which we try to emit an event and check if it was successful. The side-effects are emitted event in case of a normal `CALL` and a partial revert in case of a `STATICCALL` (This is the only way currently, at least until [EIP-2770](https://eips.ethereum.org/EIPS/eip-2970) will be accepted)
