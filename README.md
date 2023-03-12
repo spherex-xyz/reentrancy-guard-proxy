@@ -2,18 +2,17 @@
 
 A Proxy contract incorporating a Reentrancy Guard
 
-- Implementing standard OpenZeppelin [`TransparentUpgradableProxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#TransparentUpgradeableProxy) interface
-- Blocks reentrant extrenal calls through the proxy
-- Blocks [Read only reentrancy](https://www.youtube.com/watch?v=8D5ZJyU-dX0)
+- Implements a standard OpenZeppelin [`TransparentUpgradableProxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#TransparentUpgradeableProxy) interface
+- Prevents reentrant extrenal calls through the proxy
+- Prevents [Read only reentrancy](https://www.youtube.com/watch?v=8D5ZJyU-dX0)
 
 ## Motivation
 
-Too many protocols were hacked by a reentrancy attack, although `ReentrancyGuard` was utilized in some sort (e.g. Orion, Fei-Rari).
-This implementation solves a few problems in normal `ReentrancyGuard`:
-
-- Developers don't need to add the `nonReentrant` modifier to every function
-- `public` functions can now be called internally while still being blocked externally
-- `view` and `pure` functions are also being protected from "Read-Only Reentrancy"
+While some protocols, such as Orion and Fei-Rari, employed ReentrancyGuard, they still suffered from reentrancy attacks.
+This implementation now offers several benefits over the traditional approach:
+- Developers no longer need to add the nonReentrant modifier to every function.
+- Public functions can now be called internally while still being blocked externally.
+- View and pure functions are now protected against "Read-Only Reentrancy" attacks.
 
 ## Installation
 
