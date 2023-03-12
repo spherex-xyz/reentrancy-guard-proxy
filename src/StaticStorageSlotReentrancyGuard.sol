@@ -10,8 +10,8 @@ import "@openzeppelin/contracts/utils/StorageSlot.sol";
  * @dev abstract conntract to prevent reentrant calls
  *
  * This Reentrancy Guard difer from OZ one by few ways:
- * 1. `status` moved from normal contract storage to an arbitrary storage slot
- *      This is done to support Proxy guard not to clash with implementation storage
+ * 1. `status` is stored in arbitrary storage slot and not the regular contract storage.
+ *      It was done to avoid clashing with the implementation's storage
  * 2. Added `nonReentrantStatic` to allow guarding `view` and `pure` functions and
  *      prevent "read only reentrancy"
  * 3. `nonReentrant` checks if the current call is static. Helps in porxy cases where
