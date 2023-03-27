@@ -17,7 +17,7 @@ This implementation now offers several benefits over the traditional approach:
 ## Installation
 
 ```bash
-forge install Sphere-X-xyz/reentrancy-guard-proxy
+forge install spherex-xyz/reentrancy-guard-proxy
 ```
 
 (npm will be added in the future)
